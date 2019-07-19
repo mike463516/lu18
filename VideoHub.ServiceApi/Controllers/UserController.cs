@@ -28,12 +28,14 @@ namespace VideoHub.ServiceApi.Controllers
         [HttpGet, Route("GetUserByLoginNameWithType")]
         public async Task<User> GetUserByLoginNameWithType(string loginName, string password, int type)
         {
-            throw new NotImplementedException();
+            await Task.CompletedTask;
+            return null;
         }
         [HttpGet, Route("GetUsers")]
         public async Task<IEnumerable<User>> GetUsers()
         {
-            throw new NotImplementedException();
+            await Task.CompletedTask;
+            return null;
         }
     }
 }
