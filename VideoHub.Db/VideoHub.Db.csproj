@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -10,8 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Commons\Commons.csproj" />
-    <ProjectReference Include="..\VideoHub.AccountEntity\VideoHub.AccountEntity.csproj" />
     <ProjectReference Include="..\VideoHub.CommonEntity\VideoHub.CommonEntity.csproj" />
+    <ProjectReference Include="..\VideoHub.Entities\VideoHub.Entities.csproj" />
   </ItemGroup>
 
 </Project>

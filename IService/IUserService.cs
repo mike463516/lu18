@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using VideoHub.AccountEntity;
 using VideoHub.CommonEntity;
+using VideoHub.Entities;
 
 namespace IService
 {

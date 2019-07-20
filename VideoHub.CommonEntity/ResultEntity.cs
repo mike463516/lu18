@@ -14,7 +14,7 @@ namespace VideoHub.CommonEntity
     public enum StatusCode
     {
         Success,
-        Warrn,
+        Warn,
         Error
     }
 }

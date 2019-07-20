@@ -8,10 +8,20 @@ using System.Text;
 
 namespace Commons.DbHelper
 {
+    /// <summary>
+    /// mysql的访问帮助类
+    /// </summary>
     public class MySqlHelper : IDbHelper
     {
-        private static readonly string DefaultConnectionString = @"server:10.10.4.45;database=videohub;uid=root;pwd=abc-123;";
+        /// <summary>
+        /// 默认链接字符串
+        /// </summary>
+        private static readonly string DefaultConnectionString = @"server=localhost;Database=videohub;Uid=root;Pwd=abc-123;";
         private readonly IConfiguration _configuration;
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="configuration"></param>
         public MySqlHelper(IConfiguration configuration)
         {
             _configuration = configuration;

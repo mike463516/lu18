@@ -3,18 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using IService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using VideoHub.AccountEntity;
+using VideoHub.Entities;
 
 namespace VideoHub.ServiceApi.Controllers
 {
+    /// <summary>
+    /// 用户控制器
+    /// </summary>
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _iuserService;
+        /// <summary>
+        /// 用户控制器构造函数
+        /// </summary>
+        /// <param name="userService"></param>
         public UserController(IUserService userService)
         {
             _iuserService = userService;

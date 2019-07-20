@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VideoHub.AccountEntity\VideoHub.AccountEntity.csproj" />
+    <ProjectReference Include="..\VideoHub.Entities\VideoHub.Entities.csproj" />
   </ItemGroup>
 
 </Project>

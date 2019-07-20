@@ -35,6 +35,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoHub.CommonEntity", "Vi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VideoHub.BackgroundTasks", "VideoHub.BackgroundTasks", "{49BAA1A8-5FCC-4B21-A187-77D6D37F33FE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoHub.ViewModelEntity", "VideoHub.ViewModelEntity\VideoHub.ViewModelEntity.csproj", "{C6442FF6-BB8A-4AE7-92BC-7ADD1A8DDE0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoHub.Entities", "VideoHub.Entities\VideoHub.Entities.csproj", "{FB185458-D078-44F5-AA67-D6941EA4825A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +81,14 @@ Global
 		{6DFF4E9C-E1CD-4DDB-AF22-823A4E778DCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DFF4E9C-E1CD-4DDB-AF22-823A4E778DCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DFF4E9C-E1CD-4DDB-AF22-823A4E778DCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6442FF6-BB8A-4AE7-92BC-7ADD1A8DDE0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6442FF6-BB8A-4AE7-92BC-7ADD1A8DDE0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6442FF6-BB8A-4AE7-92BC-7ADD1A8DDE0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6442FF6-BB8A-4AE7-92BC-7ADD1A8DDE0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB185458-D078-44F5-AA67-D6941EA4825A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB185458-D078-44F5-AA67-D6941EA4825A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB185458-D078-44F5-AA67-D6941EA4825A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB185458-D078-44F5-AA67-D6941EA4825A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +103,8 @@ Global
 		{5931FDF6-E6A7-4E6F-916A-937106CFD0CA} = {37A6D7EF-B875-42F5-BE1D-66B2E1AB95C0}
 		{1A75B0E1-1AF8-4B9A-BC95-A095BF5DC9B3} = {41998F5E-C379-4252-B267-3A3811A82F5B}
 		{6DFF4E9C-E1CD-4DDB-AF22-823A4E778DCC} = {C2F9BB88-BEAC-45B3-ADE9-3D69A7BC6555}
+		{C6442FF6-BB8A-4AE7-92BC-7ADD1A8DDE0B} = {C2F9BB88-BEAC-45B3-ADE9-3D69A7BC6555}
+		{FB185458-D078-44F5-AA67-D6941EA4825A} = {C2F9BB88-BEAC-45B3-ADE9-3D69A7BC6555}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {787288EC-DC83-4975-A46F-3C5CD776F025}
