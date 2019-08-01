@@ -39,7 +39,7 @@ namespace VideoHub.ServiceApi.Controllers
         [HttpPost,Route("Login")]
         public async Task<ResultEntity<TokenEntity>> LoginAsync([FromBody]LoginModel model){
             var result = new ResultEntity<TokenEntity>();
-            if (model!=null||string.IsNullOrEmpty(model.LoginName)||String.IsNullOrEmpty(model.Password))
+            if (model==null||string.IsNullOrEmpty(model.LoginName)||string.IsNullOrEmpty(model.Password))
             {
                 result.Message = "参数错误";
                 result.Status = CommonEntity.StatusCode.Success;

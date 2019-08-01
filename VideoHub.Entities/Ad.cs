@@ -17,6 +17,10 @@ namespace VideoHub.Entities
         [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
         public int Id { get; set; }
         /// <summary>
+        /// 广告Url
+        /// </summary>
+        public string Url { get; set; }
+        /// <summary>
         /// 图片路径
         /// </summary>
         public string Src { get; set; }

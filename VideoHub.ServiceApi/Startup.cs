@@ -68,16 +68,21 @@ namespace VideoHub.ServiceApi
                 x.MultipartBodyLengthLimit = int.MaxValue;
                 x.MultipartHeadersLengthLimit = int.MaxValue;
             });
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCors(options =>
             {
                 options.AddPolicy("VideoHubPolicy",
-                             builder => { builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().Build(); });
+                             builder => { builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials().Build(); });
             });
+            services.AddHttpContextAccessor();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton<IDbHelper, MySqlHelper>();
             services.AddSingleton<IJwtHelper, JwtHelper>();
             services.AddSingleton<IUserResponstory, UserSqlSugarResponstory>();
             services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<IVideoResponstory, VideoSqlSugarResponstory>();
+            services.AddSingleton<IVideoService, VideoService>();
+            services.AddSingleton<ITagResponstory, TagSqlSugarResponstory>();
+            services.AddSingleton<ITagService, TagService>();
 
 #if DEBUG
             //注册Swagger生成器，定义一个和多个Swagger 文档
@@ -122,15 +127,15 @@ namespace VideoHub.ServiceApi
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseHttpsRedirection();
+            app.UseCors("VideoHubPolicy");
+       //     app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseStaticFiles(new StaticFileOptions
             {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot/files")),
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), Configuration.GetValue<string>("VirtualPath"))),
                 RequestPath = new PathString("/src")
             });
             app.UseMvc();
-            app.UseCors("VideoHubPolicy");
 #if DEBUG
             //启用中间件服务生成Swagger作为JSON终结点
             app.UseSwagger();

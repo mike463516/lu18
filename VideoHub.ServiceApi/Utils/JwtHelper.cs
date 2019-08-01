@@ -1,4 +1,5 @@
 ﻿using IdentityModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -19,9 +20,11 @@ namespace VideoHub.ServiceApi.Utils
     public class JwtHelper : IJwtHelper
     {
         private readonly IConfiguration _iconfiguration;
-        public JwtHelper(IConfiguration iconfiguration)
+        private readonly IHttpContextAccessor _ihttpContextAccessor;
+        public JwtHelper(IConfiguration iconfiguration, IHttpContextAccessor ihttpContextAccessor)
         {
             _iconfiguration = iconfiguration;
+            _ihttpContextAccessor = ihttpContextAccessor;
         }
         public string GetToken(User user)
         {
@@ -40,9 +43,9 @@ namespace VideoHub.ServiceApi.Utils
                     new Claim(JwtClaimTypes.Id, user.Id.ToString()),
                     new Claim(JwtClaimTypes.Name, user.LoginName),
                     new Claim(JwtClaimTypes.Role, user.Role.ToString()),
-                    new Claim(JwtClaimTypes.Email, user.Email),
+                    //new Claim(JwtClaimTypes.Email, user.Email),
                     new Claim(JwtClaimTypes.NickName, user.NickName),
-                    new Claim(JwtClaimTypes.Picture, user.HeadImageSrc),
+                    //new Claim(JwtClaimTypes.Picture, user.HeadImageSrc),
                     new Claim(JwtClaimTypes.PhoneNumber, user.PhoneNumber)
                     //new Claim(JwtClaimTypes.Audience,"api"),
                     //new Claim(JwtClaimTypes.Issuer,"VideoHub")
@@ -56,6 +59,17 @@ namespace VideoHub.ServiceApi.Utils
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
             return tokenString;
+        }
+        public User GetCurrentUser()
+        {
+            if (_ihttpContextAccessor.HttpContext.User.Identity.IsAuthenticated) {
+                var userInfo = new User();
+                userInfo.LoginName = _ihttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(_ => _.Type == JwtClaimTypes.Name).Value;
+                userInfo.Id = Convert.ToInt32(_ihttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(_ => _.Type == JwtClaimTypes.Id).Value);
+                userInfo.Role = Convert.ToInt32(_ihttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(_ => _.Type == JwtClaimTypes.Role).Value);
+                return userInfo;
+            }
+            return null;
         }
     }
 }

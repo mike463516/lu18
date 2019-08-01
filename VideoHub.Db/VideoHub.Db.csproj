@@ -15,11 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Video\" />
     <Folder Include="Comment\" />
     <Folder Include="Ad\" />
     <Folder Include="Preview\" />
-    <Folder Include="Tag\" />
     <Folder Include="Category\" />
     <Folder Include="ViewLog\" />
   </ItemGroup>

@@ -1,6 +1,7 @@
 ﻿using IService;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VideoHub.CommonEntity;
@@ -60,7 +61,7 @@ namespace Service
         {
             var result = new ResultEntity<PageEntity<IEnumerable<User>>>() { };
             var users = await _iuserResponstory.GetUsersByPageAsync(page);
-            if (users.Result == null)
+            if (users.Result == null || users.Result.Count() == 0)
             {
                 result.Status = StatusCode.Error;
                 result.Message = $"不存在用户";
